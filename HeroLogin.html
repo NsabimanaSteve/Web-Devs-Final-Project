@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="HeroCSS.css">
+    <title>FitInspire - Login</title>
+
+    <style>
+        body{
+            background-image: url("https://i.postimg.cc/mZvxttWS/Whats-App-Image-2024-10-16-at-21-42-24-1.jpg");
+            background-size: cover;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .quote {
+            font-size: 18px;
+            font-style: italic;
+            color: #f9f9f9;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: rgba(98, 158, 229, 0.81);
+        }
+        label {
+            color: skyblue;
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.1);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: rgba(231, 204, 112, 0.8);
+        }
+        p {
+            color: rgba(255, 255, 255, 0.79);
+            text-align: center;
+            margin-top: 15px;
+        }
+        a {
+            color: rgba(249, 183, 0, 0.87);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="container">
+
+        <div class="form-container">
+            <form id="login-form">
+                <h1>Login to FitInspire</h1>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+
+                <button type="submit">Login</button>
+
+                <p>Don't have an account? <a href="HeroSignUp.html">SignUp</a></p>
+
+                <div id="error-message" class="error"></div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Motivational quote generator
+        const quotes = [
+            "Wake up with determination, go to bed with satisfaction.",
+            "The only bad workout is the one that didnt happen.",
+            "Train insane or remain the same.",
+            "Your body can stand almost anything. Its your mind that you have to convince.",
+            "No matter how slow you go, youre still lapping everyone on the couch."
+        ];
+
+        // Display a random quote
+        function displayRandomQuote() {
+            const quoteElement = document.getElementById('motivational-quote');
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            quoteElement.innerHTML = quotes[randomIndex];
+        }
+
+        // Run the quote generator on page load
+        window.onload = function() {
+            displayRandomQuote();
+        };
+
+        // Form validation logic
+        document.getElementById('login-form').addEventListener('submit', function (event) {
+            event.preventDefault(); 
+
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            let errorMessage = '';
+
+            // Validation rules
+            if (!email.includes('@') || !email.includes('.')) {
+                errorMessage += "Please enter a valid email address.<br>";
+            }
+
+            if (password.length < 8) {
+                errorMessage += "Password must be at least 8 characters long.<br>";
+            }
+
+            // Display error message or redirect to the next page
+            if (errorMessage) {
+                document.getElementById('error-message').innerHTML = errorMessage;
+            } else {
+                console.log("Login form submitted successfully.");
+                window.location.href = "gym-dashboard.html"; // Redirect to dashboard
+            }
+        });
+    </script>
+</body>
+
+</html>
