@@ -1,5 +1,5 @@
 -- Drop the database if it exists
-DROP DATABASE IF EXISTS FitInspireDB;
+-- ROP DATABASE IF EXISTS FitInspireDB;
 
 -- Create the new database
 CREATE DATABASE FitInspireDB;
