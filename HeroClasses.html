@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitInspire Hub - Classes</title>
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.classes {
+    padding: 20px;
+}
+
+.class-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.class-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 15px;
+    width: calc(33% - 40px);
+}
+
+h1 {
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+   <nav class="navbar">
+        <div class="logo">FitInspire Hub</div>
+        <ul class="nav-links">
+            <li><a href="Hero.html">Home</a></li>
+            <li><a href="HeroClasses.html">Classes</a></li>
+            <li><a href="Hero_PTraining.html">Personal Training</a></li>
+            <li><a href="Hero_MQuotes.html">Motivational Quotes</a></li>
+            <li><a href="HeroPricing.html">Pricing</a></li>
+        </ul>
+    </nav>
+
+        <header>
+            <h1>Available Classes</h1>
+        </header>
+        <main>
+            <div id="classes" class="classes">
+                <!-- Dynamic Class Cards Will Be Inserted Here -->
+            </div>
+        </main>
+        <script>
+            // Fetch class data
+            fetch('fetch_classes.php')
+                .then(response => response.json())
+                .then(data => {
+                    const classesContainer = document.getElementById('classes');
+                    
+                    if (data.message) {
+                        classesContainer.innerHTML = `<p>${data.message}</p>`;
+                    } else {
+                        data.forEach(classItem => {
+                            // Create a card for each class
+                            const card = document.createElement('div');
+                            card.classList.add('class-card');
+    
+                            card.innerHTML = `
+                                <img src="${classItem.image_url}" alt="${classItem.class_name}" />
+                                <h2>${classItem.class_name}</h2>
+                                <p>Trainer: ${classItem.trainer_specialization}</p>
+                                <p>Schedule: ${new Date(classItem.schedule_time).toLocaleString()}</p>
+                                <p>Available Slots: ${classItem.available_slots}/${classItem.max_slots}</p>
+                            `;
+    
+                            classesContainer.appendChild(card);
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching classes:', error);
+                    document.getElementById('classes').innerHTML = '<p>Unable to load class data.</p>';
+                });
+        </script>
+</body>
+</html>

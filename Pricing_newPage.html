@@ -1,0 +1,221 @@
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <title>Pricing Page | Fit Inspire Hub</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Choose a Membership Plan</h1>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h2>Basic</h2>
+
+                <h1>
+                    <i class="fas fa-dollar-sign"></i>
+                    19
+                </h1>
+
+                <ul>
+                    <li>Access: 9 AM - 5 PM</li>
+                    <li>No personal training</li>
+                    <li>Limited gym equipment</li>
+                    <li>Access to general fitness area</li>
+                    <li>No group classes</li>
+                </ul>
+
+                <button class="btn">Choose Plan</button>
+
+            </div>
+
+            <div class="card">
+
+                <h2>Standard</h2>
+
+                <h1>
+                    <i class="fas fa-dollar-sign"></i>
+                    49 <span>/month</span>
+                </h1>
+
+                <ul>
+                    <li>Access: 9 AM - 9 PM</li>
+                    <li>5 personal training sessions/month</li>
+                    <li>Full access to gym equipment</li>
+                    <li>Access to select group classes</li>
+                    <li>Locker and towel service</li>
+                </ul>
+
+                <button class="btn">Choose Plan</button>
+
+            </div>
+
+            <div class="card">
+
+                <h2>Premium</h2>
+
+                <h1>
+                    <i class="fas fa-dollar-sign"></i>
+                    99 <span>/month</span>
+                </h1>
+
+                <ul>
+                    <li>24/7 gym access</li>
+                    <li>Unlimited personal training</li>
+                    <li>Access to all gym equipment</li>
+                    <li>All group classes included</li>
+                    <li>Parking, locker, and towel service</li>
+                </ul>
+
+                <button class="btn">Choose Plan</button>
+
+            </div>
+
+        </div>
+
+        
+    <div class="testimonials">
+        <h2>What Our Members Say</h2>
+        <p>"Joining Fit Inspire Hub changed my life! I lost 10kg in 3 months with the Premium plan." - Jane Doe</p>
+    </div>
+
+    </div>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+            background-color: #ffffff;
+            color: #302929;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .container h1 {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            font-size: 2.4rem;
+            word-spacing: 0.3rem;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 1rem;
+        }
+
+        .card {
+            background-color: #dadee4;
+            padding: 1rem 2rem;
+            text-align: center;
+            position: relative;
+            border-radius: 10px;
+        }
+
+        .card span {
+            font-size: 1.1rem;
+        }
+
+        .card h2,
+        .card h1 {
+            text-align: center;
+        }
+
+        .card ul {
+            margin-top: 3rem;
+            list-style: none;
+            text-align: left;
+            margin-bottom: 7rem;
+        }
+
+        .card ul li {
+            line-height: 2.5;
+        }
+
+        .card ul li::before {
+            content: "\2022";
+            color: #BC1E4A;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .card .btn {
+            font-size: 1rem;
+            border: none;
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid #BC1E4A;
+            padding: 0.8rem 2rem;
+            position: absolute;
+            bottom: 0;
+            left: 6rem;
+            margin-bottom: 2rem;
+            outline: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .card .btn:hover {
+            background-color: #BC1E4A;
+            transition: all 0.3s ease;
+        }
+
+        @media(max-width: 1000px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 1rem;
+            }
+        }
+
+        @media(max-width: 675px) {
+            .cards {
+                grid-template-columns: 1fr;
+                grid-gap: 1rem;
+            }
+        }
+
+        .testimonials {
+        margin-top: 3rem;
+        text-align: center;
+        font-style: italic;
+        color: #555;
+    }
+    </style>
+
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
