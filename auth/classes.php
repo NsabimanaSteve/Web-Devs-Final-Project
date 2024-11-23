@@ -107,7 +107,7 @@ $classes = fetchAll('classes');
                         
                         <div class="class-info">
                             <p><strong>Time:</strong> <?= date('l, g:i A', strtotime($class['schedule_time'])); ?></p>
-                            <p><strong>Trainer:</strong> <?= htmlspecialchars($class['trainer_name']); ?></p>
+                            <p><strong>Trainer:</strong> <?= htmlspecialchars($class['trainer']); ?></p>
                             <?php if (!empty($class['specialization'])): ?>
                                 <p><strong>Specialization:</strong> <?= htmlspecialchars($class['specialization']); ?></p>
                             <?php endif; ?>

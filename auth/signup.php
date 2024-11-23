@@ -6,18 +6,22 @@ $error_message = '';
 $success_message = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $full_name = trim($_POST['full_name']);
+    $first_name = trim($_POST['first_name']);
+    $last_name = trim($_POST['last_name']);
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
+    $confirm_password = trim($_POST['confirm_password']);
     $role = trim($_POST['role']);
 
     // Basic validation
-    if (empty($full_name) || empty($email) || empty($password) || empty($role)) {
+    if (empty($first_name) || empty($last_name) || empty($email) || empty($password) || empty($confirm_password) || empty($role)) {
         $error_message = "All fields are required";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error_message = "Invalid email format";
     } elseif (strlen($password) < 8) {
         $error_message = "Password must be at least 8 characters long";
+    } elseif ($password !== $confirm_password) {
+        $error_message = "Passwords do not match";
     } else {
         // Check if email exists
         $check_email = $conn->prepare("SELECT email FROM Users WHERE email = ?");
@@ -47,8 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (empty($error_message)) {
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
                 
-                $stmt = $conn->prepare("INSERT INTO Users (role_id, full_name, email, password) VALUES (?, ?, ?, ?)");
-                $stmt->bind_param("isss", $role_id, $full_name, $email, $hashed_password);
+                $stmt = $conn->prepare("INSERT INTO Users (role_id, first_name, last_name, email, password) VALUES (?, ?, ?, ?, ?)");
+                $stmt->bind_param("issss", $role_id, $first_name, $last_name, $email, $hashed_password);
 
                 if ($stmt->execute()) {
                     $success_message = "Registration successful! Please <a href='login.php'>login</a>";
@@ -62,7 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -218,8 +221,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <?php if (!$success_message): ?>
                 <form method="POST" action="signup.php">
                     <div class="form-group">
-                        <label for="full_name"><i class="fas fa-user"></i> Full Name</label>
-                        <input type="text" name="full_name" id="full_name" required>
+                        <label for="first_name"><i class="fas fa-user"></i> First Name</label>
+                        <input type="text" name="first_name" id="first_name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="last_name"><i class="fas fa-user"></i> Last Name</label>
+                        <input type="text" name="last_name" id="last_name" required>
                     </div>
 
                     <div class="form-group">
@@ -230,6 +238,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="form-group">
                         <label for="password"><i class="fas fa-lock"></i> Password</label>
                         <input type="password" name="password" id="password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm_password"><i class="fas fa-lock"></i> Confirm Password</label>
+                        <input type="password" name="confirm_password" id="confirm_password" required>
                     </div>
 
                     <div class="form-group">
