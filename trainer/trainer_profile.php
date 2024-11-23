@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback</title>
+    <title>Trainer Profile</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -65,98 +65,72 @@
         .content h2 {
             margin-bottom: 20px;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
+        .profile-card {
             background: #fff;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
         }
-        table th, table td {
-            padding: 10px;
-            text-align: left;
-            border: 1px solid #ddd;
+        .profile-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #ddd;
+            margin-bottom: 15px;
         }
-        table th {
-            background-color: #f4f4f4;
+        .profile-card h3 {
+            margin: 10px 0;
+            font-size: 22px;
+            color: #333;
         }
-        .btn {
-            padding: 8px 12px;
+        .profile-card p {
+            margin: 5px 0;
+            color: #555;
+        }
+        .profile-card .btn-edit {
+            margin-top: 20px;
+            padding: 10px 20px;
             background: #007BFF;
             color: #fff;
             border: none;
             border-radius: 4px;
             cursor: pointer;
         }
-        .btn:hover {
+        .profile-card .btn-edit:hover {
             background: #0056b3;
-        }
-        .btn-delete {
-            background: #dc3545;
-        }
-        .btn-delete:hover {
-            background: #b02a37;
         }
     </style>
 </head>
 <body>
     <header>
         <div>
-            <h1>FitInspire Gub</h1>
+            <h1>FitInspire Hub</h1>
         </div>
         <div class="nav-buttons">
             <a href="../auth/HERO.php">Home</a>
-            <a href="../auth/classes.php">Classes</a>
+            <a href="../auth/HeroClasses.php">Classes</a>
         </div>
     </header>
     <div class="sidebar">
         <a href="trainer_index.php">Dashboard</a>
         <a href="attendance.php">Attendance</a>
         <a href="schedule.php">Schedules</a>
-        <a href="trainer_feedback.php" class="active">Feedback</a>
-        <a href="trainer_profile.php">My Profile</a>
+        <a href="trainer_feedback.php">Feedback</a>
+        <a href="trainer_profile.php" class="active">My Profile</a>
     </div>
     <div class="content">
-        <h2>Feedback</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Client Name</th>
-                    <th>Feedback</th>
-                    <th>Date</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Jane Doe</td> <!--should add members from the db table of users-->
-                    <td>Great session today! Loved the workout plan.</td>
-                    <td>2024-11-22</td>
-                    <td>
-                        <button class="btn">Mark Resolved</button>
-                        <button class="btn btn-delete">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>John Smith</td>
-                    <td>The equipment needs maintenance. Some machines are squeaky.</td>
-                    <td>2024-11-20</td>
-                    <td>
-                        <button class="btn">Mark Resolved</button>
-                        <button class="btn btn-delete">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Emily Johnson</td>
-                    <td>The yoga class was amazing! Thanks for the tips.</td>
-                    <td>2024-11-18</td>
-                    <td>
-                        <button class="btn">Mark Resolved</button>
-                        <button class="btn btn-delete">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <h2>Trainer Profile</h2>
+        <div class="profile-card">
+            <img src="trainer-placeholder.jpg" alt="Trainer Profile Picture">
+            <h3>John Doe</h3>
+            <p><strong>Email:</strong> johndoe@example.com</p>
+            <p><strong>Phone:</strong> +123-456-7890</p>
+            <p><strong>Specialization:</strong> Strength Training, Yoga</p>
+            <p><strong>Joined:</strong> January 2021</p>
+            <button class="btn-edit">Edit Profile</button>
+        </div>
     </div>
 </body>
 </html>

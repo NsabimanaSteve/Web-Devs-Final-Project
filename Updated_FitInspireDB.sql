@@ -106,6 +106,13 @@ CREATE TABLE BlogPosts (
     FOREIGN KEY (image_id) REFERENCES Images(image_id)
 );
 
+-- 11. Specializations of the trainers
+CREATE TABLE Specializations(
+    spec_id INT PRIMARY KEY AUTO_INCREMENT,
+    spec_name VARCHAR(50) NOT NULL,
+
+);
+
 -- Insert Sample Data --
 
 -- Insert Images for Classes, Trainers, and Other Categories
